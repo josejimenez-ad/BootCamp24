@@ -1,5 +1,6 @@
 import {Locator} from "@playwright/test";
 import {Page} from "@playwright/test";
+import {Navbar} from "./commonSections/navBar";
 
 export class HomePage{
     // Defining the locators
@@ -15,11 +16,12 @@ export class HomePage{
 
     // constructor
     constructor(page:Page) {
+        this.page = page;
+        this.navBar = new Navbar(this.page.locator('.page-container').first());
 
 
 
     }
-
 
     // functions
 
