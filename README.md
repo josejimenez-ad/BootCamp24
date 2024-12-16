@@ -25,6 +25,7 @@ Flows:
 
 
 ### AI USES
-
+- Used for extra explanations and helping build the "fixtures" arrangement for the pages.
+- 
 
 ###
