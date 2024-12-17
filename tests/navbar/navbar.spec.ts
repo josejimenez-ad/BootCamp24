@@ -31,10 +31,12 @@ test.describe('NavBar validations',()=>{
         async ({homePage,page,baseURL})=> {
             await page.goto('https://demo.spreecommerce.org');
             await expect (homePage.navBar.logo).toBeVisible();
-            await homePage.navBar.logo.click();
-            await homePage.navBar.openSearch.click();
-            await expect(homePage.searchBox.searchInput).toBeVisible();
-
+            await homePage.navBar.confirmTheRedirections(homePage.navBar.logo,page);
+            await homePage.navBar.confirmTheRedirections(homePage.navBar.bathAndFeelGood,page);
+            await homePage.navBar.confirmTheRedirections(homePage.navBar.beauty,page);
+            await homePage.navBar.confirmTheRedirections(homePage.navBar.skinCare,page);
+            await homePage.navBar.confirmTheRedirections(homePage.navBar.fashion,page);
+            await homePage.navBar.confirmTheRedirections(homePage.navBar.beautyGifts,page);
     })
 
 })

@@ -1,6 +1,5 @@
-import {Locator} from "@playwright/test";
+import {Locator, expect} from "@playwright/test";
 import {Page} from "@playwright/test";
-import {SearchBox} from "./searchBox";
 
 export class Navbar{
     // general locators
@@ -19,7 +18,7 @@ export class Navbar{
     // constructor
     constructor(page:Page){
     this.page = page;
-    this.logo = this.page.locator('#header-logo');
+    this.logo = this.page.locator('#site-logo');
     this.openSearch = this.page.locator('#open-search');
     this.bathAndFeelGood = this.page.locator('[data-title="bath & feelgood"]');
     this.beauty = this.page.locator('[data-title="beauty"]');
@@ -29,7 +28,15 @@ export class Navbar{
     this.accountIcon = this.page.locator('button[data-action*="slideover-account#toggle"]');
     this.favoritesIcon = this.page.locator('#wishlist-icon');
     this.cartIcon = this.page.locator('#cart-icon-');
-
     }
 
+    async confirmTheRedirections(destiny: Locator,page) {
+        const desiredUrl = await destiny.getAttribute('href');
+        await Promise.all([
+            page.waitForNavigation(),
+            destiny.click()
+        ]);
+        const currentUrl = page.url();
+        await expect(currentUrl).toContain(desiredUrl);
+    }
 }
