@@ -1,6 +1,7 @@
 import {Locator} from "@playwright/test";
 import {Page} from "@playwright/test";
 import {Navbar} from "./commonSections/navBar";
+import {SearchBox} from "./commonSections/searchBox";
 
 export class HomePage{
     // Defining the locators
@@ -13,12 +14,13 @@ export class HomePage{
     readonly beautyGifts: CarouselComponent;
     readonly subscription: mailForm;
     readonly pageFooter: Footer;
+    readonly searchBox: SearchBox;
 
     // constructor
     constructor(page:Page) {
         this.page = page;
         this.navBar = new Navbar(this.page.locator('.page-container').first());
-
+        this.searchBox = new SearchBox(this.page.locator('.page-container.bg-background'));
 
 
     }
