@@ -7,11 +7,14 @@ test.describe('NavBar validations',()=>{
             { type: '', description: '' },
         ],
     },
-        async({homePage,page,baseURL})=>{
-            await page.goto('https://demo.spreecommerce.org');
+        async({homePage,page,baseURL,isMobile})=>{
+            await page.goto('/');
             await expect (homePage.navBar.logo).toBeVisible();
             await expect(homePage.navBar.openSearch).toBeVisible();
             // Checking the different options to navigate
+            if(isMobile){
+                await homePage.navBar.mobileBurgerMenu.click();
+            }
             await expect(homePage.navBar.bathAndFeelGood).toBeVisible();
             await expect(homePage.navBar.beauty).toBeVisible();
             await expect(homePage.navBar.skinCare).toBeVisible();
@@ -29,7 +32,7 @@ test.describe('NavBar validations',()=>{
         ],
     },
         async ({homePage,page,baseURL})=> {
-            await page.goto('https://demo.spreecommerce.org');
+            await page.goto('/');
             await expect (homePage.navBar.logo).toBeVisible();
             await homePage.navBar.confirmTheRedirections(homePage.navBar.logo,page);
             await homePage.navBar.confirmTheRedirections(homePage.navBar.bathAndFeelGood,page);

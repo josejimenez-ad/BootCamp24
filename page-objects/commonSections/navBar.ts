@@ -8,6 +8,7 @@ export class Navbar{
     readonly accountIcon: Locator;
     readonly favoritesIcon: Locator;
     readonly cartIcon: Locator;
+    readonly mobileBurgerMenu: Locator;
     // specific locators for menu options
     readonly bathAndFeelGood: Locator;
     readonly beauty: Locator;
@@ -20,6 +21,7 @@ export class Navbar{
     this.page = page;
     this.logo = this.page.locator('#site-logo');
     this.openSearch = this.page.locator('#open-search');
+    this.mobileBurgerMenu = this.page.getByRole('button',{name:"Toggle menu"})
     this.bathAndFeelGood = this.page.locator('[data-title="bath & feelgood"]');
     this.beauty = this.page.locator('[data-title="beauty"]');
     this.skinCare = this.page.locator('[data-title="skin care"]');
@@ -37,6 +39,6 @@ export class Navbar{
             destiny.click()
         ]);
         const currentUrl = page.url();
-        await expect(currentUrl).toContain(desiredUrl);
+        expect(currentUrl).toContain(desiredUrl);
     }
 }
