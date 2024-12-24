@@ -3,6 +3,7 @@ import {Page} from "@playwright/test";
 
 export class AddressSection {
     // Defining the locators
+    readonly root: Locator;
     readonly addressTitle: Locator;
     readonly countryDropDown: Locator;
     readonly firstNameInput: Locator;
@@ -16,19 +17,19 @@ export class AddressSection {
     readonly saveAndContinueButton: Locator;
 
     // constructor
-    constructor(page: Page) {
-        this.page = page;
-        this.addressTitle = this.page.locator('h5').filter({hasText:"Shipping Address"});
-        this.countryDropDown = this.page.locator('#order_ship_address_attributes_country_id');
-        this.firstNameInput = this.page.getByPlaceholder('First name');
-        this.lastNameInput = this.page.getByPlaceholder('Last name');
-        this.streetAndHouseNumberInput = this.page.getByPlaceholder('Street and house number');
-        this.apartmentInput = this.page.getByPlaceholder('Apartment, suite, etc. (optional)');
-        this.cityInput = this.page.getByPlaceholder('City');
-        this.stateDropDown = this.page.locator('#order_ship_address_attributes_state_id'); //only valid for USA
-        this.postalCodeInput = this.page.getByPlaceholder('Postal Code');
-        this.phoneInput = this.page.getByPlaceholder('Phone (optional)');
-        this.saveAndContinueButton = this.page.getByRole('button', { name:'Save and Continue'});
+    constructor(root: Locator) {
+        this.root = root;
+        this.addressTitle = this.root.locator('h5').filter({hasText:"Shipping Address"});
+        this.countryDropDown = this.root.locator('#order_ship_address_attributes_country_id');
+        this.firstNameInput = this.root.getByPlaceholder('First name');
+        this.lastNameInput = this.root.getByPlaceholder('Last name');
+        this.streetAndHouseNumberInput = this.root.getByPlaceholder('Street and house number');
+        this.apartmentInput = this.root.getByPlaceholder('Apartment, suite, etc. (optional)');
+        this.cityInput = this.root.getByPlaceholder('City');
+        this.stateDropDown = this.root.locator('#order_ship_address_attributes_state_id'); //only valid for USA
+        this.postalCodeInput = this.root.getByPlaceholder('Postal Code');
+        this.phoneInput = this.root.getByPlaceholder('Phone (optional)');
+        this.saveAndContinueButton = this.root.getByRole('button', { name:'Save and Continue'});
     }
 
     // functions

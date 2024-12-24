@@ -3,18 +3,19 @@ import {Page} from "@playwright/test";
 
 export class DeliverySection {
     // Defining the locators
+    readonly root: Locator;
     readonly deliveryTitle: Locator;
     readonly deliverySelector: Locator;
     readonly deliveryRadioButton: Locator;
     readonly saveAndContinueButton: Locator;
 
     // constructor
-    constructor(page: Page) {
-        this.page = page;
-        this.deliveryTitle = this.page.locator('h5').filter({hasText:"Delivery"});
-        this.deliverySelector = this.page.locator('[checkout-delivery-target="shippingRate"]');
-        this.deliveryRadioButton = this.page.locator('.radio-input');
-        this.saveAndContinueButton = this.page.getByRole('button', { name:'Save and Continue'});
+    constructor(root: Locator) {
+        this.root = root;
+        this.deliveryTitle = this.root.locator('h5').filter({hasText:"Delivery"});
+        this.deliverySelector = this.root.locator('[checkout-delivery-target="shippingRate"]');
+        this.deliveryRadioButton = this.root.locator('.radio-input');
+        this.saveAndContinueButton = this.root.getByRole('button', { name:'Save and Continue'});
     }
 
     // functions

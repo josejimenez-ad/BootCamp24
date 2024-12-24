@@ -7,6 +7,7 @@ import {ContentPanel} from "./commonSections/contentPanel";
 
 export class AccountPage{
     // Defining the locators
+    readonly page: Page;
     readonly navBar: Navbar;
     readonly contentPanel: ContentPanel;
     readonly creativeDivider: ContentDivider;

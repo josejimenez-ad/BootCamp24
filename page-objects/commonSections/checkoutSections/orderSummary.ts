@@ -3,6 +3,7 @@ import {Page} from "@playwright/test";
 
 export class OrderSummary {
     // Defining the locators
+    readonly root: Locator;
     readonly lineItems: Locator;
     readonly itemFulfillment: Locator;
     readonly productImage: Locator;
@@ -17,15 +18,15 @@ export class OrderSummary {
     readonly totalCost: Locator;
 
     // constructor
-    constructor(page: Page) {
-        this.page = page;
-        this.lineItems = this.page.locator('[data-checkout-summary-target="line_items"]');
+    constructor(root: Locator) {
+        this.root = root;
+        this.lineItems = this.root.locator('[data-checkout-summary-target="line_items"]');
         this.itemFulfillment = this.lineItems.locator('p');
         this.productImage = this.lineItems.locator('img');
         this.productQuantity = this.lineItems.locator('.text-sidebar-text');
         this.productName = this.lineItems.locator('.font-bold.word-break');
         this.productPrice = this.lineItems.locator('').filter({hasText:'$'});
-        this.couponArea = this.page.locator('[data-checkout-summary-target="coupon_area"]');
+        this.couponArea = this.root.locator('[data-checkout-summary-target="coupon_area"]');
         this.couponInput = this.couponArea.locator('[aria-label="ADD PROMO CODE"]');
         this.applyCouponButton = this.couponArea.getByRole('button').filter({hasText:"Apply"});
         this.subtotalCost = this.couponArea.locator('[data-hook="order_summary"]').locator('.justify-between').first();

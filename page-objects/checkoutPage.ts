@@ -3,6 +3,7 @@ import {Page} from "@playwright/test";
 import {OrderSummary} from "./commonSections/checkoutSections/orderSummary";
 import {AddressSection} from "./commonSections/checkoutSections/addressSection";
 import {DeliverySection} from "./commonSections/checkoutSections/deliverySection";
+import {PaymentSection} from "./commonSections/checkoutSections/paymentSection";
 import {Navbar} from "./commonSections/navBar";
 import {SearchBox} from "./commonSections/searchBox";
 import {ContentDivider} from "./commonSections/contentDivider";
@@ -11,6 +12,7 @@ import {ContentPanel} from "./commonSections/contentPanel";
 
 export class CheckoutPage{
     // Defining the locators
+    readonly page: Page;
     readonly logo: Locator;
     readonly breadcrumbsMenu: Locator;
     readonly cartBreadCrumb: Locator;
@@ -43,6 +45,7 @@ export class CheckoutPage{
         this.deliveryForm = new DeliverySection(this.page.locator('#shipping-method'));
         this.deliveryMethodModal = this.page.locator('.border.text-sm').locator('.justify-between.border-t.border-default');
         this.editDeliveryMethod = this.deliveryMethodModal.locator('a').filter({hasText:"Edit"});
+        this.paymentForm = new PaymentSection(this.page.locator('[data-controller="checkout-billing"]'));
     }
 
     // functions
