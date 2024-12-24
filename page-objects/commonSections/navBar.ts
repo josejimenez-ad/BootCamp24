@@ -9,6 +9,7 @@ export class Navbar{
     readonly favoritesIcon: Locator;
     readonly cartIcon: Locator;
     readonly mobileBurgerMenu: Locator;
+    readonly successSignUp: Locator;
     // specific locators for menu options
     readonly bathAndFeelGood: Locator;
     readonly beauty: Locator;
@@ -30,6 +31,7 @@ export class Navbar{
     this.accountIcon = this.page.locator('button[data-action*="slideover-account#toggle"]');
     this.favoritesIcon = this.page.locator('#wishlist-icon');
     this.cartIcon = this.page.locator('#cart-icon-');
+    this.successSignUp = this.page.locator('[data-controller="alert"]').locator('.p-2');
     }
 
     async confirmTheRedirections(destiny: Locator,page) {
