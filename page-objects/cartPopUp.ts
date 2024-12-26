@@ -4,6 +4,7 @@ import {ProductCard} from "./commonSections/productCardPage";
 
 export class CartPopUp{
     // Defining the locators
+    readonly page: Page
     readonly window: Locator;
     readonly cartTitle: Locator;
     readonly cartContent: Locator;

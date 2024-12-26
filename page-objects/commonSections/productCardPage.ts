@@ -3,6 +3,7 @@ import {Page} from "@playwright/test";
 
 export class ProductCard{
     // Defining the locators
+    readonly root: Locator;
     readonly productImage: Locator;
     readonly productTitle: Locator;
     readonly productPrice: Locator;
@@ -14,17 +15,17 @@ export class ProductCard{
     readonly productRemovalButton: Locator;
 
     // constructor
-    constructor(page: Page) {
-        this.page = page;
-        this.productImage = this.page.locator('.cart-product-image');
-        this.productTitle = this.page.locator('a').locator('.font-semibold.text-text');
-        this.productPrice = this.page.locator('.text-sm').filter({hasText:'$'});
-        this.quantitySelector = this.page.locator('.quantity-picker');
+    constructor(root: Locator) {
+        this.root = root;
+        this.productImage = this.root.locator('.cart-product-image');
+        this.productTitle = this.root.locator('a').locator('.font-semibold.text-text');
+        this.productPrice = this.root.locator('.text-sm').filter({hasText:'$'});
+        this.quantitySelector = this.root.locator('.quantity-picker');
         this.quantityPlus = this.quantitySelector.locator('.quantity-increase-button');
         this.quantityMinus = this.quantitySelector.locator('.quantity-decrease-button');
         this.quantityInput = this.quantitySelector.locator('[aria-label="Quantity"]');
-        this.productNotification = this.page.locator('.text-danger');
-        this.productRemovalButton = this.page.locator('.remove-line-item-button');
+        this.productNotification = this.root.locator('.text-danger');
+        this.productRemovalButton = this.root.locator('.remove-line-item-button');
     }
 
     // functions

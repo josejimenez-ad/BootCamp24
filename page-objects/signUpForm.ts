@@ -3,6 +3,7 @@ import {Page} from "@playwright/test";
 
 export class SignUpForm{
     // Defining the locators
+    readonly page: Page;
     readonly window: Locator;
     readonly signUpTitle: Locator;
     readonly emailInput: Locator;

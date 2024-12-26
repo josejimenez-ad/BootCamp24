@@ -3,6 +3,7 @@ import {Page} from "@playwright/test";
 
 export class Navbar{
     // general locators
+    readonly root: Locator;
     readonly openSearch: Locator;
     readonly logo: Locator;
     readonly accountIcon: Locator;
@@ -18,20 +19,19 @@ export class Navbar{
     readonly beautyGifts: Locator
 
     // constructor
-    constructor(page:Page){
-    this.page = page;
-    this.logo = this.page.locator('#site-logo');
-    this.openSearch = this.page.locator('#open-search');
-    this.mobileBurgerMenu = this.page.getByRole('button',{name:"Toggle menu"})
-    this.bathAndFeelGood = this.page.locator('[data-title="bath & feelgood"]');
-    this.beauty = this.page.locator('[data-title="beauty"]');
-    this.skinCare = this.page.locator('[data-title="skin care"]');
-    this.fashion = this.page.locator('[data-title="fashion"]');
-    this.beautyGifts = this.page.locator('[data-title="beauty gifts"]');
-    this.accountIcon = this.page.locator('button[data-action*="slideover-account#toggle"]');
-    this.favoritesIcon = this.page.locator('#wishlist-icon');
-    this.cartIcon = this.page.locator('#cart-icon-');
-    this.successSignUp = this.page.locator('[data-controller="alert"]').locator('.p-2');
+    constructor(root:Locator){
+    this.logo = this.root.locator('#site-logo');
+    this.openSearch = this.root.locator('#open-search');
+    this.mobileBurgerMenu = this.root.getByRole('button',{name:"Toggle menu"})
+    this.bathAndFeelGood = this.root.locator('[data-title="bath & feelgood"]');
+    this.beauty = this.root.locator('[data-title="beauty"]');
+    this.skinCare = this.root.locator('[data-title="skin care"]');
+    this.fashion = this.root.locator('[data-title="fashion"]');
+    this.beautyGifts = this.root.locator('[data-title="beauty gifts"]');
+    this.accountIcon = this.root.locator('button[data-action*="slideover-account#toggle"]');
+    this.favoritesIcon = this.root.locator('#wishlist-icon');
+    this.cartIcon = this.root.locator('#cart-icon-');
+    this.successSignUp = this.root.locator('[data-controller="alert"]').locator('.p-2');
     }
 
     async confirmTheRedirections(destiny: Locator,page) {
