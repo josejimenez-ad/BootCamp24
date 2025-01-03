@@ -1,5 +1,4 @@
 import {Locator, expect} from "@playwright/test";
-import {Page} from "@playwright/test";
 
 export class Navbar{
     // general locators
