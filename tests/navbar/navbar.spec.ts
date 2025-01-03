@@ -7,7 +7,7 @@ test.describe('NavBar validations',()=>{
             { type: '', description: '' },
         ],
     },
-        async({homePage,page,baseURL,isMobile})=>{
+        async({homePage,page,isMobile})=>{
             await page.goto('/');
             await expect (homePage.navBar.logo).toBeVisible();
             await expect(homePage.navBar.openSearch).toBeVisible();
