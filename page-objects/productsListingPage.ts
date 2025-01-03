@@ -6,7 +6,7 @@ import {Footer} from "./commonSections/footer";
 import {ProductCardInListing} from "./commonSections/productCardListing";
 
 
-export class HomePage{
+export class ProductsListingPage{
     // Defining the locators
     readonly page: Page;
     readonly navBar: Navbar;
