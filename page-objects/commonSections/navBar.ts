@@ -19,6 +19,7 @@ export class Navbar{
 
     // constructor
     constructor(root:Locator){
+    this.root = root;
     this.logo = this.root.locator('#site-logo');
     this.openSearch = this.root.locator('#open-search');
     this.mobileBurgerMenu = this.root.getByRole('button',{name:"Toggle menu"})
