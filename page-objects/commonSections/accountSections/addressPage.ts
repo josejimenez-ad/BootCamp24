@@ -16,8 +16,5 @@ export class AddressPage{
 
 
     }
-
-    // functions
-
-
+    
 }

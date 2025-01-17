@@ -10,8 +10,4 @@ export class GiftCards{
         this.root = root;
         this.noSavedItems = this.root.locator('p');
     }
-
-    // functions
-
-
 }

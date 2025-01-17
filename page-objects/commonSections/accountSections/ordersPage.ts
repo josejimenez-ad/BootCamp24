@@ -13,7 +13,4 @@ export class OrdersPage{
         this.shopAllButton = this.root.locator('.btn-primary').filter({hasText:'Shop All'});
     }
 
-    // functions
-
-
 }

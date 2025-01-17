@@ -1,5 +1,4 @@
 import {Locator} from "@playwright/test";
-import {Page} from "@playwright/test";
 
 export class ProductCard{
     // Defining the locators

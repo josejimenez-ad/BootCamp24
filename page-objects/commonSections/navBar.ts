@@ -15,14 +15,14 @@ export class Navbar{
     readonly beauty: Locator;
     readonly skinCare: Locator;
     readonly fashion: Locator;
-    readonly beautyGifts: Locator
+    readonly beautyGifts: Locator;
 
     // constructor
     constructor(root:Locator){
     this.root = root;
     this.logo = this.root.locator('#site-logo');
     this.openSearch = this.root.locator('#open-search');
-    this.mobileBurgerMenu = this.root.getByRole('button',{name:"Toggle menu"})
+    this.mobileBurgerMenu = this.root.getByRole('button',{name:"Toggle menu"});
     this.bathAndFeelGood = this.root.locator('[data-title="bath & feelgood"]');
     this.beauty = this.root.locator('[data-title="beauty"]');
     this.skinCare = this.root.locator('[data-title="skin care"]');

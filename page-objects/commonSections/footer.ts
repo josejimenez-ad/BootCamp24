@@ -21,14 +21,14 @@ export class Footer{
         this.root = root;
         this.siteLogo = this.root.locator('#site-logo');
         this.followUs = this.root.locator('h3').filter({hasText:'Follow Us'});
-        this.shopFooter = this.root.locator('[data-editor-name="Shop]');
+        this.shopFooter = this.root.locator('[data-editor-name="Shop"]');
         this.shopAll = this.shopFooter.locator('a').filter({hasText:'Shop All'});
         this.brands = this.shopFooter.locator('a').filter({hasText:'Brands'});
         this.accountFooter = this.root.locator('[data-editor-name="Account"]');
         this.myAccount = this.accountFooter.locator('a').filter({hasText:'My Account'});
         this.favorites = this.accountFooter.locator('a').filter({hasText:'Favorites'});
         this.companyFooter = this.root.locator('[data-editor-name="Company"]');
-        this.infoFooter = this.root.locator('[data-editor-name="Info"');
+        this.infoFooter = this.root.locator('[data-editor-name="Info"]');
         this.privacyPolicy = this.infoFooter.locator('a').filter({hasText:'Privacy Policy'});
         this.termsOfService = this.infoFooter.locator('a').filter({hasText:'Terms of Service'});
     }

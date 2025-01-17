@@ -27,8 +27,4 @@ export class LeftNavMenu {
         this.managePreferences = this.root.getByText('Manage preferences');
         this.logOut = this.root.getByRole('button',{name:'Log out'});
     }
-
-    // functions
-
-
 }

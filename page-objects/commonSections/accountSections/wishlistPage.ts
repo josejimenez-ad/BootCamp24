@@ -12,8 +12,4 @@ export class Wishlist{
         this.noSavedItems = this.root.locator('p');
         this.shopAllButton = this.root.locator('.btn-primary').filter({hasText:'Shop All'});
     }
-
-    // functions
-
-
 }

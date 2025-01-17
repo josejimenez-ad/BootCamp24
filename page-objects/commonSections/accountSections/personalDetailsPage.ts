@@ -14,6 +14,7 @@ export class PersonalDetails{
     // constructor
     constructor(root:Locator) {
         this.root = root;
+        this.title = this.root.locator('h5').locator('.uppercase.font-medium');
         this.firstNameEntry = this.root.getByPlaceholder('First Name');
         this.lastNameEntry = this.root.getByPlaceholder('Last Name');
         this.phoneEntry = this.root.getByPlaceholder('Phone');
@@ -21,8 +22,4 @@ export class PersonalDetails{
         this.changePasswordButton = this.root.locator('a').filter({hasText:'Change Password'});
         this.updateButton = this.root.locator('.btn-primary');
     }
-
-    // functions
-
-
 }

@@ -15,7 +15,4 @@ export class ManagePreferences{
         this.subscribeToNewsletterButton = this.root.getByRole('button',{name:'subscribe'});
     }
 
-    // functions
-
-
 }
