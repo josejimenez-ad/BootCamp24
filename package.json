@@ -2,7 +2,10 @@
   "name": "automationcamp2024",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "e2e:all": "npx playwright test --config=configs/playwright.config.ts",
+    "navbar:all": "npx playwright test --grep='@navbar' --config=configs/playwright.config.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
