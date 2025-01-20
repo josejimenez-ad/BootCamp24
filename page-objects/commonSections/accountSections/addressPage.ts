@@ -1,4 +1,5 @@
 import {Locator} from "@playwright/test";
+import {NewAddressPage} from "./newAddressPage";
 
 export class AddressPage{
     // Defining the locators
@@ -12,7 +13,7 @@ export class AddressPage{
         this.root = root;
         this.noAddressesNotification = this.root.locator('.mb-2.font-medium');
         this.addAddressButton = this.root.locator('.btn-primary').filter({hasText:'Add'});
-
+        this.addAddressPage = new NewAddressPage(this.root.locator('.new_address'));
 
 
     }
